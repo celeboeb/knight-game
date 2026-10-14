@@ -1,6 +1,6 @@
-:root{--paper:#ece4d3;--ink:#1d2a4d;--red:#d2402b;--line:rgba(29,42,77,.22);--hatch:rgba(29,42,77,.09);--soft:rgba(29,42,77,.55);
+:root{--paper:#ece4d3;--ink:#1d2a4d;--red:#d2402b;--line:rgba(29,42,77,.22);--hatch:rgba(29,42,77,.26);--tint:rgba(29,42,77,.15);--grid:rgba(29,42,77,.38);--soft:rgba(29,42,77,.55);
 --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .15 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
-html[data-theme=night]{--paper:#22272b;--ink:#e6dfcc;--red:#f0a23a;--line:rgba(230,223,204,.16);--hatch:rgba(230,223,204,.05);--soft:rgba(230,223,204,.5);
+html[data-theme=night]{--paper:#22272b;--ink:#e6dfcc;--red:#f0a23a;--line:rgba(230,223,204,.16);--hatch:rgba(230,223,204,.20);--tint:rgba(230,223,204,.11);--grid:rgba(230,223,204,.30);--soft:rgba(230,223,204,.5);
 --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;min-height:100%;background:var(--paper) var(--grain);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;overscroll-behavior:none;touch-action:manipulation;transition:background-color .35s,color .35s}
@@ -25,9 +25,9 @@ body.noTimer #timeBox{visibility:hidden}
 #board{position:absolute;inset:0;display:grid;border:2px solid var(--ink)}
 #trail{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 #trail polyline{fill:none;stroke:var(--red);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
-.c{position:relative;border:0;padding:0;min-width:0;min-height:0;background:none;box-shadow:inset -.5px -.5px 0 var(--line);color:var(--ink);font:500 16px "New York",ui-serif,Georgia,serif;font-variant-numeric:tabular-nums;display:flex;align-items:center;justify-content:center}
-.c.d{background:repeating-linear-gradient(135deg,var(--hatch) 0 1.5px,transparent 1.5px 5px)}
-.c span{position:relative;z-index:2;background:var(--paper);border-radius:40%;padding:0 2px;line-height:1.1}
+.c{position:relative;border:0;padding:0;min-width:0;min-height:0;background:none;box-shadow:inset -1px -1px 0 var(--grid);color:var(--ink);font:500 16px "New York",ui-serif,Georgia,serif;font-variant-numeric:tabular-nums;display:flex;align-items:center;justify-content:center}
+.c.d{background:repeating-linear-gradient(135deg,var(--hatch) 0 1.3px,transparent 1.3px 4px),var(--tint)}
+.c span{position:relative;z-index:2;background:var(--paper);border-radius:40%;padding:0 3px;font-weight:600;line-height:1.1}
 .c.cur span{background:var(--red);color:var(--paper);border-radius:50%;width:66%;height:66%;display:flex;align-items:center;justify-content:center;font-weight:700;animation:stamp .22s ease-out}
 .c.m::after{content:"";width:13px;height:13px;flex:none;border:1.5px solid var(--red);border-radius:50%;animation:in .2s}
 .c.h::after{width:28px;height:28px;border:2px dashed var(--red);animation:spin 4s linear infinite}
