@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ход конём">
+<meta name="theme-color" content="#ece4d3" id="tc">
+<link rel="apple-touch-icon" href="icon-180.png"><link rel="manifest" href="manifest.webmanifest">
+<title>Ход конём</title>
+<script>(function(){var s=localStorage.kn_theme,d=(s==='day'||s==='night')?s:(matchMedia('(prefers-color-scheme: dark)').matches?'night':'day');document.documentElement.dataset.theme=d})()</script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script><link rel="stylesheet" href="style.css"></head><body>
+<main id="app">
+<header>
+ <h1>Ход конём <span class="n" id="sizeLbl">8×8</span></h1>
+ <button class="ico" id="theme" aria-label="Тема"></button>
+ <button class="ico" id="gear" aria-label="Настройки"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+</header>
+<p class="kicker" id="status">Поставьте коня на любое поле</p>
+<div class="row">
+ <div class="st"><small>Ход</small><b id="score">0</b><i id="total">/64</i></div>
+ <div class="st" id="timeBox"><small>Время</small><b id="time">00:00</b></div>
+ <div class="st r"><small>Рекорд</small><b id="best">0</b></div>
+</div>
+<div id="wrap"><div id="board"></div><svg id="trail"></svg></div>
+<p id="msg" class="msg hidden"></p>
+<footer class="btns"><button id="undo">Отменить</button><button id="hint">Подсказка</button><button id="reset">Заново</button></footer>
+</main>
+<div id="sheetBg" class="bg"></div>
+<section id="sheet" aria-hidden="true">
+ <div class="grab"></div>
+ <div class="sh"><h2>Настройки</h2><button id="done">Готово</button></div>
+ <div class="grp"><label>Размер доски</label><nav class="seg" id="seg"><button data-n="5">5×5</button><button data-n="6">6×6</button><button data-n="8">8×8</button></nav></div>
+ <div class="list">
+  <div class="it"><span>Путь коня</span><button class="sw" data-k="trail"></button></div>
+  <div class="it"><span>Таймер</span><button class="sw" data-k="timer"></button></div>
+  <div class="it"><span>Подсказки</span><button class="sw" data-k="hints"></button></div>
+ </div>
+ <div class="grp"><label>Оформление</label><nav class="seg" id="thSeg"><button data-t="auto">Авто</button><button data-t="day">День</button><button data-t="night">Ночь</button></nav></div>
+ <p class="foot" id="bestTimes"></p>
+</section>
+<script src="tg.js"></script><script src="logic.js"></script><script src="app.js"></script></body></html>
