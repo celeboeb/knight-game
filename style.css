@@ -4,7 +4,7 @@ html[data-theme=night]{--paper:#22272b;--ink:#e6dfcc;--red:#f0a23a;--line:rgba(2
 --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;min-height:100%;background:var(--paper) var(--grain);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;overscroll-behavior:none;touch-action:manipulation;transition:background-color .35s,color .35s}
-#app{padding:calc(env(safe-area-inset-top) + 10px) calc(env(safe-area-inset-right) + 18px) calc(env(safe-area-inset-bottom) + 16px) calc(env(safe-area-inset-left) + 18px);max-width:520px;margin:0 auto}
+#app{padding:calc(env(safe-area-inset-top) + 10px) calc(env(safe-area-inset-right) + 18px) calc(env(safe-area-inset-bottom) + 16px) calc(env(safe-area-inset-left) + 18px);max-width:520px;margin:0 auto;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 header{display:flex;align-items:center;gap:6px;min-height:44px}
 h1{flex:1;min-width:0;margin:0;font:700 22px/1.1 -apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:-.02em;white-space:nowrap}
 h1 .n{font:600 13px -apple-system,sans-serif;color:var(--red);letter-spacing:0;margin-left:4px;vertical-align:2px}
@@ -21,7 +21,7 @@ html[data-theme=night] #theme::after{background:radial-gradient(circle at 72% 28
 .st i{font-style:normal;font-size:12px;color:var(--soft)}
 .st.r{justify-content:flex-end}#timeBox{justify-content:center}
 body.noTimer #timeBox{visibility:hidden}
-#wrap{position:relative;aspect-ratio:1}
+#wrap{position:relative;aspect-ratio:1;margin-top:auto;flex:none}
 #board{position:absolute;inset:0;display:grid;border:2px solid var(--ink)}
 #trail{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 #trail polyline{fill:none;stroke:var(--red);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
@@ -37,7 +37,7 @@ body.noTimer #timeBox{visibility:hidden}
 @keyframes in{from{transform:scale(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-.btns{display:grid;grid-template-columns:repeat(3,1fr);margin-top:16px;border-top:1px solid var(--line)}
+.btns{display:grid;grid-template-columns:repeat(3,1fr);margin:0 0 12px;border-bottom:1px solid var(--line)}
 .btns button{min-width:0;border:0;background:none;color:var(--ink);font:600 15px -apple-system,sans-serif;padding:14px 4px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .1s}
 .btns button+button{border-left:1px solid var(--line)}
 .btns #reset{color:var(--red)}
@@ -63,6 +63,6 @@ body.noTrail #trail{display:none}
 .sw::after{content:"";position:absolute;top:2.5px;left:2.5px;width:23px;height:23px;border-radius:50%;background:var(--ink);transition:transform .25s cubic-bezier(.3,1.4,.5,1),background .25s}
 .sw.on{background:var(--red);border-color:var(--red)}.sw.on::after{transform:translateX(20px);background:var(--paper)}
 .foot{font-size:13px;color:var(--soft);margin:16px 0 0;line-height:1.5}
-.msg{margin:14px 0 0;font:500 20px/1.25 "New York",ui-serif,Georgia,serif;font-style:italic;animation:in2 .3s}.msg b{color:var(--red);font-style:normal}
+.msg{margin:0 0 12px;font:500 20px/1.25 "New York",ui-serif,Georgia,serif;font-style:italic;animation:in2 .3s}.msg b{color:var(--red);font-style:normal}
 @keyframes in2{from{opacity:0;transform:translateY(6px)}}
 .hidden{display:none}
